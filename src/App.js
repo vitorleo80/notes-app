@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import Note from './components/Note'
+import FileSaver from 'file-saver'
 
 class App extends Component {
   state = {
@@ -34,6 +35,11 @@ class App extends Component {
               <button
                 onClick={() => this.deleteNote(i)}
                 className='bnt btn-danger btn-sm'><span className='glyphicon glyphicon-trash'></span>Delete</button>
+              {" "}
+              <button
+                onClick={() => this.exportNote(i)}
+                className='btn btn-warning btn-sm'><span className='glyphicon glyphicon-file'></span>Export</button>
+
             </li>
           )}
         </ul>
@@ -54,6 +60,14 @@ class App extends Component {
         return index !== i;
       })
     })
+  }
+  exportNote = (i) => {
+    let note = this.state.notes.filter((note, index) => {
+      return index === i
+    })
+
+    const blob = new Blob([JSON.stringify(note)], { type: "text/plain;charset=utf-8" });
+    FileSaver.saveAs(blob, "note.txt")
   }
   
  
