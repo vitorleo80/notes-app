@@ -34,7 +34,7 @@ class App extends Component {
           {this.state.notes.map((note, i) =>
             <li key={i} className='list-group-item'>
               <h4 className='list-grup-item-heading'>{note.noteTitle} <small><span className='label label-info'>{note.notePriority}</span></small></h4>
-              <p>{note.noteDesc}</p>
+              <p class="mb-1">{note.noteDesc}</p>
               <button
                 onClick={() => this.deleteNote(i)}
                 className='bnt btn-danger btn-sm'><span className='glyphicon glyphicon-trash'></span>Delete</button>
