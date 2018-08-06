@@ -1,6 +1,9 @@
 # Note Taking App
 Simple React notes App 🔥
 
+The project has been hosted on Heroku [Heroku](https://www.heroku.com/)
+Please see live demo [Demo](https://notes-taking-app-vitor.herokuapp.com/)
+
 
 ## Features
 
