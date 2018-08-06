@@ -3,6 +3,22 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    notes: []
+  }
+
+  componentDidMount() {
+    const state = localStorage.getItem('state')
+    if (state) {
+      this.setState({ notes: JSON.parse(state) })
+    }
+  }
+
+  componentDidUpdate() {
+    const state = JSON.stringify(this.state.notes)
+    localStorage.setItem('state', state)
+  }
+
   render() {
     return (
       <div className="App">
