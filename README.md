@@ -11,6 +11,7 @@ The project has been hosted on [Heroku](https://www.heroku.com/). Please see liv
 - Modify a note
 - Export a note to a txt file
 - Priority tag
+- Notes Counter
 - Data saved through local storage 📦 
 
 ### Getting Started
