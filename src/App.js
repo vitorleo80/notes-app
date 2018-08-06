@@ -31,6 +31,9 @@ class App extends Component {
             <li key={i} className='list-group-item'>
               <h4 className='list-grup-item-heading'>{note.noteTitle} <small><span className='label label-info'>{note.notePriority}</span></small></h4>
               <p>{note.noteDesc}</p>
+              <button
+                onClick={() => this.deleteNote(i)}
+                className='bnt btn-danger btn-sm'><span className='glyphicon glyphicon-trash'></span>Delete</button>
             </li>
           )}
         </ul>
@@ -44,6 +47,14 @@ class App extends Component {
         notes: [...this.state.notes, note]
       })
     }
+  
+  deleteNote = (i) => {
+    this.setState({
+      notes: this.state.notes.filter((note, index) => {
+        return index !== i;
+      })
+    })
+  }
   
  
 }
