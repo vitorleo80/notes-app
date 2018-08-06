@@ -9,7 +9,13 @@ export default class Note extends Component {
         notePriority: 'Low'
     }
 
-    
+    render() {
+        return (
+            <div>
+                {this.renderForm()}
+            </div>
+        )
+    }
 
     renderForm = () => {
         if (this.props.isEditMode) {
@@ -116,13 +122,7 @@ export default class Note extends Component {
         )
     }
 
-    render() {
-        return (
-            <div>
-                {this.renderForm()}
-            </div>
-        )
-    }
+    
     handleSubmit = (e) => {
         e.preventDefault()
         if (!this.props.isEditMode) {
@@ -147,8 +147,12 @@ export default class Note extends Component {
                 notePriority: this.state.notePriority || note.notePriority,
                 noteTitle: this.state.noteTitle || note.noteTitle
             }
-            console.log(newNote)
             this.props.onAddNote(newNote)
+            this.setState({
+                noteTitle: '',
+                noteDesc: '',
+                notePriority: 'Low'
+            })
         }
     }
 
